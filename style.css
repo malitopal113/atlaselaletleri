@@ -1,4 +1,9 @@
+html {
+  scroll-behavior: smooth; /* Tüm sayfa için yumuşak kaydırma davranışı */
+}
+
 body {
+  height: 100%;
     font-family: 'Poppins', sans-serif; /* Poppins fontunu tüm sayfa için kullanıyoruz */
     overflow-x: hidden;
   }
@@ -27,20 +32,51 @@ body {
   scrollbar-color: #888 #f1f1f1; /* Scroll bar rengi ve arka plan rengi */
 }
 .top-menu {
-    background-color: #e74c3c; /* Güzel bir kırmızı tonu */
-    color: white;
-    padding: 10px 0;
+  background-color: #e74c3c; /* Güzel bir kırmızı tonu */
+  color: white;  
+  padding-top: 15px; /* Üstten boşluk ekle */
+   /* Alttan daha az boşluk bırak */
+}
+  .top-menu .row {
+    text-align: center; /* İçerikleri ortala */
   }
   .top-menu a {
     text-decoration: none;
     color: white;
+    padding: 3px 10px; /* Linklerin etrafına boşluk ekler */
+    transition: all 0.3s ease; /* Geçiş animasyonu */
+    border-radius: 5px; /* Köşeleri hafif yuvarlatır */
+  }
+  .top-menu a:hover {
+    background-color: #f39c12; /* Hover durumunda arka plan rengi (turuncu tonunda) */
+    color: #333; /* Yazı rengini koyu bir gri yapar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti */
+    text-decoration: none; /* Alt çizgi kaldırılır */
   }
   .top-menu i {
     margin-right: 5px;
+
   }
+  .navbar {
+    display: flex;
+    align-items: center; /* Dikeyde ortalamak için */
+}
   .navbar-nav {
     margin: 0 auto; /* Menü öğelerini ortalamak için */
+    display: flex;
   }
+  .navbar-brand{
+      width: 15%; /* Resmin genişliği */
+      height: 75px; /* Resmin yüksekliği */
+      object-fit: contain; /* Resmi düzgün sığdır */
+      border-radius: 20px; /* Üst sol köşe yuvarlama */
+        
+  }
+  .navbar-brand img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
   .navbar-nav .nav-item {
     margin-right: 30px; /* Menü öğeleri arasına daha fazla boşluk ekler */
   }
@@ -67,31 +103,303 @@ body {
   bottom: -5px; /* Yazının hemen altına */
   width: 0;
   height: 2px;
-  background-color: #f1c40f; /* Sarıya yakın bir çizgi */
+  background-color: #f39c12; /* Sarıya yakın bir çizgi */
   transition: width 0.3s ease-in-out;
 }
 
+
+/* CSS */
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #f39c12;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
 /* Hover'da alt çizginin genişlemesi */
 .navbar-nav .nav-item .nav-link:hover::after {
   width: 100%; /* Tam genişlikte alt çizgi */
 }
 
-  .btn {
-    font-weight: 500; /* Butonlar için yazı kalınlığını artır */
-    background-color: #f1c40f;
-    border: none;
-  }
+
   @media (max-width: 576px) {
     .mobile-btn {
       border-radius: 0; /* Kenarları düz yap */
     }
+    #top-menü{
+      display: none;
+    }
+
   }
   /* Slider stili */
+
+.carousel {
+  width: 66%; /* Slider genişliğini %80 yap */
+  margin: 20px auto; /* Slider'ı yatayda ortala ve üstten 20px boşluk ekle */
+  border: 0 solid #f39c12; /* Kenar çizgisi rengi ve kalınlığı */
+  border-radius: 15px; /* Kenarları yuvarlat */
+  overflow: hidden; /* Taşmaları engelle */
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3); /* Daha belirgin bir gölge efekti */
+}
+.carousel-item {
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Kayma ve solma animasyonu */
+    opacity: 0; /* Varsayılan olarak gizle */
+}
+
+.carousel-item.active {
+    opacity: 1; /* Aktif olan resim tamamen görünür */
+}
+
+/* Hover ile geçişi hızlandırma (isteğe bağlı) */
+.carousel:hover .carousel-item {
+    transition-duration: 0.5s; /* Hover'da daha hızlı geçiş */
+}
   .carousel-item img {
-    width: 100%; /* Resimlerin genişliği tam olarak %100 olacak */
-    height: 600px; /* Yükseklik otomatik ayarlanacak */
-    object-fit: cover; /* Resimlerin içeriğini kaplamasını sağlar */
+    width: 100%; /* Genişliği %80 olarak ayarladık */
+    height: 500px; /* Yüksekliği biraz daha azalttık */
+    object-fit: cover; /* Resmin içeriğini kaplamasını sağlar */
+     /* Resmi ortalar ve üstüne boşluk ekler */
+}
+/* Kaydırma okları için stil */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px; /* Ok genişliği */
+    height: 40px; /* Ok yüksekliği */
+    top: 50%; /* Orta hizaya al */
+    transform: translateY(-50%); /* Orta hizayı düzelt */
+    opacity: 1; /* Ok işaretleri her zaman görünür */
+    background-color: rgba(243, 156, 18, 0.8); /* Arka plan rengi */
+    border-radius: 50%; /* Yuvarlak görünüm */
+    border: none; /* Kenarlık kaldırıldı */
+    padding: 0; /* İç boşluk kaldırıldı */
+    display: flex; /* Flex kutusu oluştur */
+    align-items: center; /* Dikey ortalama */
+    justify-content: center; /* Yatay ortalama */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Geçiş animasyonu */
+}
+
+/* Ok simgeleri için içerik ayarlaması */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background: none; /* Arka planı kaldır */
+    color: white; /* Ok işareti rengi */
+    font-size: 24px; /* Ok işareti boyutu */
+}
+.carousel-control-prev {
+  left: 20px; /* Sol kenara daha yakın */
+}
+
+/* Sonraki okun pozisyonu */
+.carousel-control-next {
+  right: 20px; /* Sağ kenara daha yakın */
+}
+
+/* Hover durumunda animasyon ve stil değişiklikleri */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #e67e22; /* Hover durumunda daha koyu turuncu */
+    transform: scale(1.1); /* Hover'da büyütme efekti */
+}
+
+/* Özel simgeler için */
+.carousel-control-prev-icon::after {
+    content: '←'; /* Önceki ok simgesi */
+    font-size: 24px; /* Ok simgesi boyutu */
+    color: white; /* Ok rengi */
+}
+
+.carousel-control-next-icon::after {
+    content: '→'; /* Sonraki ok simgesi */
+    font-size: 24px; /* Ok simgesi boyutu */
+    color: white; /* Ok rengi */
+}
+
+.card {
+  margin: 20px; /* Kartlar arasında boşluk */
+  border: 1px solid #ddd; /* Kart kenarları için sınır */
+  border-radius: 10px; /* Kart köşeleri yuvarla */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+  background-color: #EAEAEA;
+}
+.card-body {
+  display: flex; /* Esnek kutu modeli */
+  flex-direction: column; /* Dikey hizalama */
+  justify-content: center; /* Dikey ortalama */
+  align-items: center; /* Yatay ortalama */
+  text-align: center; /* Yazının ortalanması için */
+  border-radius: 15px;
+}
+
+.btn-warning {
+  width: 90%; /* Butonun genişliği tam dolsun */
+  
+}
+.card-title{
+  color: #000000; /* Siyah yazı rengi */
+    font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+    font-size: 25px; /* Yazı boyutu */
+    font-weight: 500; /* Kalın yazı */
+    text-align: center; /* Ortala */
+   
+}
+.card-subtitle{
+  color: #000000; /* Siyah yazı rengi */
+  font-family: 'Poppins', sans-serif; /* Modern sans-serif font */
+  font-size: 15px; /* Yazı boyutu */
+  text-align: center; /* Ortala */
+  margin-bottom: 15px;
+  
+}
+
+
+.card-img-top {
+  width: 100%; /* Resmin genişliği */
+  height: 200px; /* Resmin yüksekliği */
+  object-fit: cover; /* Resmi düzgün sığdır */
+  border-radius: 20px; /* Üst sol köşe yuvarlama */
+  
+  margin: auto;
+}
+
+.modal {
+  display: none; /* Başlangıçta gizli */
+  position: fixed; /* Sabit konum */
+  z-index: 1050; /* Üst katman */
+  left: 0;
+  top: 0;
+  width: 100%; /* Tüm genişlik */
+  height: 100%; /* Tüm yükseklik */
+  overflow: hidden; /* Taşmayı gizle */
+  background-color: rgba(0, 0, 0, 0.7); /* Siyah yarı saydam arka plan */
+}
+
+.modal-content {
+  position: relative;
+  margin: auto;
+  width: 100%; /* Tam genişlik */
+  height: 100%; /* Tam yükseklik */
+}
+
+.modal-body {
+  display: flex; /* Flex kullanarak merkezleme */
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala */
+  height: 100%; /* Modal içeriğinin yüksekliği */
+}
+
+.modal-body img {
+  max-width: 100%; /* Resmin maksimum genişliği */
+  max-height: 100%; /* Resmin maksimum yüksekliği */
+}
+
+
+.about-title{
+  text-align: center; /* Ortalaması için */
+  margin: 50px 0 20px 0; /* Üst ve alt boşluk */
+}
+
+.about-section {
+  padding: 50px 0; /* Üst ve alt boşluk */
+  background-color: #f9f9f9; /* Açık arka plan rengi */
+}
+
+
+
+@keyframes floating {
+  0% {
+      transform: translateY(0);
   }
+  50% {
+      transform: translateY(-10px); /* Yukarıya doğru daha belirgin hareket */
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+.about-image {
+  animation: floating 2s ease-in-out infinite; /* Sürekli dalgalanma efekti */
+}
+
+.image-wrapper {
+  border-radius: 10px; /* Resim köşelerini yuvarla */
+  overflow: hidden; /* Taşmalarını engelle */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge efekti */
+  transition: transform 0.3s ease; /* Hover için geçiş efekti */
+}
+
+.about-image img {
+  width: 100%; /* Resmin genişliği tam olarak %100 olacak */
+  height: auto; /* Yükseklik otomatik ayarlanacak */
+}
+
+.image-wrapper:hover {
+  transform: scale(1.05); /* Hover olduğunda yakınlaştır */
+}
+
+.about-text {
+  margin-top: 20px; /* Üstten boşluk ekle */
+}
+
+.about-text p {
+  font-size: 16px; /* Yazı boyutu */
+  line-height: 1.5; /* Satır yüksekliği */
+  margin-bottom: 20px; /* Alt boşluk */
+}
+
+.btn-warning {
+  background-color: #f39c12; /* Buton arka plan rengi */
+  border: none; /* Sınır kaldırıldı */
+}
+
+.btn-warning:hover {
+  background-color: #e67e22; /* Hover durumunda daha koyu turuncu */
+}
+
+hr {
+  width: 50%; /* Çizginin genişliği */
+  margin: 20px auto; /* Ortalamak için */
+  border: 2px solid #f1c40f; /* Kalın çizgi */
+}
+
+
   .products-title {
     text-align: center; /* Ortalaması için */
     margin: 50px 0 20px 0; /* Üst ve alt boşluk */
