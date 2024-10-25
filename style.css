@@ -6,6 +6,7 @@ body {
   height: 100%;
     font-family: 'Poppins', sans-serif; /* Poppins fontunu tüm sayfa için kullanıyoruz */
     overflow-x: hidden;
+    
   }
   /* Chrome ve Safari için Scroll Bar Tasarımı */
 ::-webkit-scrollbar {
@@ -31,11 +32,83 @@ body {
   scrollbar-width: thin; /* İnce scroll bar */
   scrollbar-color: #888 #f1f1f1; /* Scroll bar rengi ve arka plan rengi */
 }
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  display: none; /* Sayfa kaydırılana kadar görünmesin */
+  width: 60px;
+  height: 60px;
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* Yuvarlak yap */
+  text-align: center;
+  line-height: 60px;
+  font-size: 34px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Hafif gölge */
+  transition: background-color 0.3s ease;
+  z-index: 1000; /* Üstte kalması için */
+}
+
+#scrollTopBtn:hover {
+  background-color: #fb8332;
+  transform: scale(1.1); /* %10 büyüme */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Başlangıç ve bitiş noktası */
+  }
+  50% {
+    transform: translateY(-5px); /* Ortada yukarı hareket */
+  }
+}
+
+#whatsappBtn {
+  position: fixed;
+  bottom: 100px;
+  left: 100px;
+  width: 65px;
+  height: 65px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  animation: bounce 2s infinite; /* Animasyonu ekle */
+  transition: transform 0.3s ease; /* Geçiş efekti ekle */
+}
+
+#whatsappBtn:hover {
+  width: 75px;
+  height: 75px;
+  font-size: 60px;
+  transition: 0.3s ease;
+}
+
+
+
+
 .top-menu {
   background-color: #e74c3c; /* Güzel bir kırmızı tonu */
   color: white;  
   padding-top: 15px; /* Üstten boşluk ekle */
+  
+  
+  
    /* Alttan daha az boşluk bırak */
+}
+#top-menu.hidden {
+  display: none; /* Kaybolması için */
 }
   .top-menu .row {
     text-align: center; /* İçerikleri ortala */
@@ -60,7 +133,14 @@ body {
   .navbar {
     display: flex;
     align-items: center; /* Dikeyde ortalamak için */
+    
 }
+#navbar-nav.fixed{
+  position:fixed;
+   /* Top-menü kaybolması için */
+  
+}
+
   .navbar-nav {
     margin: 0 auto; /* Menü öğelerini ortalamak için */
     display: flex;
@@ -194,7 +274,7 @@ body {
   .carousel-item img {
     width: 100%; /* Genişliği %80 olarak ayarladık */
     height: 500px; /* Yüksekliği biraz daha azalttık */
-    object-fit: cover; /* Resmin içeriğini kaplamasını sağlar */
+    object-fit:fill; /* Resmin içeriğini kaplamasını sağlar */
      /* Resmi ortalar ve üstüne boşluk ekler */
 }
 /* Kaydırma okları için stil */
@@ -292,7 +372,7 @@ body {
 .card-img-top {
   width: 100%; /* Resmin genişliği */
   height: 200px; /* Resmin yüksekliği */
-  object-fit: cover; /* Resmi düzgün sığdır */
+  object-fit: contain; /* Resmi düzgün sığdır */
   border-radius: 20px; /* Üst sol köşe yuvarlama */
   
   margin: auto;
