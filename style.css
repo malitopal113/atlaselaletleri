@@ -439,7 +439,9 @@ body {
 }
 
 .image-wrapper {
-  border-radius: 10px; /* Resim köşelerini yuvarla */
+  width: 75%;
+  height:85%; 
+  border-radius: 70px; /* Resim köşelerini yuvarla */
   overflow: hidden; /* Taşmalarını engelle */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge efekti */
   transition: transform 0.3s ease; /* Hover için geçiş efekti */
@@ -706,6 +708,17 @@ hr {
   border-color: #f39c12; /* Odaklandığında sınır rengi */
   box-shadow: 0 0 5px rgba(243, 156, 18, 0.5); /* Odaklandığında gölge efekti */
 }
+.footer-contact li a{
+  text-decoration: none;
+    color: white;   
+    transition: all 0.3s ease; /* Geçiş animasyonu */  
+}
+.footer-contact li a:hover{
+  
+    color: #f39c12;   
+    
+}
+
 
 /* Buton Stili */
 .btn-warning {
