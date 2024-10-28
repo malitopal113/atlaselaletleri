@@ -731,6 +731,26 @@ hr {
   border: 1px solid #ccc;
 }
 
+
+.gonder{
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  background-color: #f39c12;
+  border: 1px solid #f39c12;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.gonder:hover {
+  color: #212529;
+  background-color: #ffca2c;
+  border-color: #ffca2c;
+}
 @media (max-width: 768px) {
   .mobile-btn {
     border-radius: 0; /* Kenarları düz yap */
