@@ -59,4 +59,15 @@ window.onscroll = function() {
       behavior: 'smooth'
     });
   });
-  
+
+
+  function SendMail(){
+    var params = {
+      from_name : document.getElementById("fullName").value,
+      email_id : document.getElementById("email_id").value,
+      message : document.getElementById("message").value
+    }
+    emailjs.send("service_79rkd6n", "template_i5xltdn", params).then(function (res) {
+      alert("Mesajınız Başarıyla Gönderildi " + res.status);
+    })
+  }
